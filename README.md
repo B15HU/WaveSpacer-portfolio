@@ -19,9 +19,10 @@ Aloitin projektin parissa Frontend kehittäjänä, koska vastuu alueeni tehtävi
 
 <img width="1915" height="1082" alt="Näyttökuva 2026-01-09 165730" src="https://github.com/user-attachments/assets/cf597925-3b37-40e1-97e0-4ac3f4753366" />
 
-
-https://github.com/user-attachments/assets/b09aaba6-ec80-4673-8080-9dbd5b155a32
-
+<video width="100%" controls>
+  <source src="assets/videos/wavespacer-demo.mp4" type="video/mp4">
+  Selaimesi ei tue videon toistoa.
+</video>
 
 
 ### Testaus
