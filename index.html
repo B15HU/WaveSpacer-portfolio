@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WaveSpacer Portfolio - Testaaja & Liiketalous</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Tässä CSS yhdistetään HTML:ään -->
 </head>
 
 <body>
@@ -28,7 +27,7 @@
         toimivuutta oikeilla käyttäjillä.
       </p>
       <p>
-        Toteutimme projektin noin 3,5 kk aikana 5hengen kehittäjä tiimissä. Vastuu alueenani
+        Toteutimme projektin noin 3,5 kuukauden aikana viiden hengen kehittäjätiimissä. Vastuu alueenani
         oli toimia – <strong>Testaajana & Liiketalouden vastaavana</strong>. Tässä portfoliossa esittelen
         TC-opintojakson aikana tekemäni työt, osaamiseni kehittymisen sekä omat oivallukseni
         opintojakson ajalta.
@@ -65,23 +64,127 @@
           <figcaption>Soittolistan valintanäkymä</figcaption>
         </figure>
 
-
         <video controls>
           <source src="assets/videos/wavespacer-demo.mp4" type="video/mp4">
         </video>
         <figcaption>Tervehdys animaatio</figcaption>
-
-
       </div>
     </section>
 
     <section class="card">
-      <h2>Oma roolini projektissa</h2>
+      <h2>Testaus</h2>
+      <p><strong> Testaajana
+          vastasin testauksen suunnittelusta ja toteutuksesta. Testaus kehittyi projektin edetessä kehityksen
+          rinnalla, ja sen painoarvo kasvoi sen mukaan, kun sovellusksen toiminallisuudet alkoivat valmistua.
+        </strong></p>
+
+      <p><strong>Testauksen tavoitteita</strong>
+        ei oltu täysin määritelty projektin alussa, sillä alkuvaihe painottui vahvasti sovelluksen
+        kehittämiseen. Varsinainen <strong>testaussuunnitelmaa</strong> laadittiin vasta ensimmäisten demojen jälkeen,
+        kun
+        sovelluksen ydinominaisuudet alkoivat vakiintua. <strong>Testauksen tavoitteena</strong>
+        oli varmistaa, että tietojen lataus, tallennus ja näyttäminen toimii virheittä. Ja, että käyttöliittymä
+        on selkeä ja toimii yleisimmillä selaimilla ja laitteilla.
+      </p>
+
+
+
+      <h3>Yksikkötestaus (Jasmine & Karma) </h3>
+      <p>Yksikkötestaus toteutettiin Angularin omilla testausvälineillä, Jasmine ja Karma. Alkuvaiheessa
+        yksikkötestit olivat melko alkeellisia ja keskittyivät lähinnä tekniseen toimivuuteen, kuten:
       <ul>
-        <li>Testauksen suunnittelu ja toteutus</li>
-        <li>Testitulosten raportointi kehitystiimille</li>
-        <li>Liiketaloudellisen näkökulman tuominen päätöksentekoon</li>
+        <li>renderöityykö komponentti oikein</li>
+        <li>näkyvätkö otsikot ja tekstit</li>
+        <li>löytyvätkö kuvien alt-tekstit</li>
+        <li>alustuvatko komponentit odotetusti</li>
       </ul>
+
+      Projektin edetessä yksikkötestauksen laajuus kasvoi merkittävästi. Loppuvaiheessa projektissa oli yli
+      <strong>200 yksikkötestiä</strong>, jotka kattoivat suuren osan käyttöliittymäkomponenteista ja niiden
+      peruskäyttäytymisestä. Yksikkötestien kirjoittaminen auttoi myös tunnistamaan epäselviä vastuita
+      komponenteissa ja paransi koodin rakennetta.
+      </p>
+      <div class="image-grid">
+        <figure>
+          <img src="assets/images/karma.png" alt="Yksikkötestit">
+          <figcaption>Yksikkötestit</figcaption>
+        </figure>
+      </div>
+
+      <p>Haasteena yksikkötestauksessa oli erityisesti sen määrittely, <strong>mitä kaikkea kannattaa testata
+          ja miten syvästi.</strong> Vaikka yksikkötestit ovatkin kaikkien vastuulla jotka kirjoittavat koodia,
+        testit jäivät yksinomaan testaajan tehtäväksi.
+      </p>
+
+      <h3>End-to-End-testaus (Cypress)</h3>
+      <p>End-to-end-testaus toteutettiin Cypressillä. Tarkoituksena oli testata sovellusta käyttäjän
+        näkökulmasta, esimerkiksi:
+      <ul>
+        <li>sivuston sisäinen navigointi</li>
+        <li>soittolistan valitseminen ja siistiminen</li>
+        <li>käyttäjä profiilin hallitseminen</li>
+      </ul>
+      Merkittävin haaste E2E-testauksessa liittyi Spotify-kirjautumiseen. Cypress ei voinut suorittaa
+      kirjautumista Spotifyn omassa domainissa, minkä vuoksi kirjautumista ei saatu automatisoitua. Mikä
+      sitten esti testaamisen oikealla käyttäjädatalla. Tämän vuoksi E2E-testit päätettiin jättää myöhemmälle,
+      ja lopuksi korjaamiseen varattu aika osoittautui suuremmaksi kuin projektin aikataulu salli. Minkä
+      seurauksena E2E-testit jäivät valitettavasti tekemättä!</p>
+
+      <h3>CI/CD-putki</h3>
+      <p>
+        Testauksen automatisointi toteutettiin GitHub Actionsin avulla. Projektissa
+        määriteltiin CI/CD-putki, jossa jokaisen koodimuutoksen yhteydessä ajettiin
+        automaattiset testit.
+      </p>
+
+      <p>
+        Tavoitteena oli estää koodimuutosten yhdistyminen <em>develop</em>-haaraan,
+        mikäli testit epäonnistuivat. Develop-haara toimi projektissa pääasiallisena
+        kehityshaarana ennen virallista <em>main</em>-haaraa.
+      </p>
+
+      <p>
+        Käytännössä havaittiin kuitenkin, että epäonnistuneet testit eivät aina
+        estäneet muutosten etenemistä develop-haaraan. Tämän vuoksi CI/CD-putki
+        päätettiin poistaa käytöstä projektin myöhemmässä vaiheessa.
+      </p>
+
+      <div class="image-grid">
+        <figure>
+          <img src="assets/images/unit-test.yml.png" alt="Unit-test.yml">
+          <figcaption>Unit-test.yml</figcaption>
+        </figure>
+      </div>
+
+      <h3>Käyttäjätestaus & bugien korjaus</h3>
+
+      <p>
+        Automatisoidun testauksen rinnalla hyödynnettiin käyttäjätestausta. Projektissa saatiin ulkopuolisia
+        testikäyttäjiä, joiden palautteen avulla löydettiin useita käytettävyyteen liittyviä ongelmia.
+      </p>
+      <p>
+        <strong>Esimerkiksi:</strong>
+      <ul>
+        <li>painettavien ja ei-painettavien elementtien erottelu oli epäselvää</li>
+        <li>kaipasi pieniä animaatiota kappaleen poistamisen jälkeen soittolistasta, onnistuneen toiminnon
+          merkiksi
+        </li>
+      </ul>
+
+      Palaute välitettiin UI/UX-suunnittelijalle ja kehittäjille, ja korjaukset toteutettiin iteratiivisesti
+      juuri ennen loppuesitystä!
+      </p>
+
+    </section>
+
+    <section class="card">
+      <h2>Liiketaloudellinen vastuu</h2>
+      <p>
+        Liiketaloudellisena vastaavana osallistuin projektin liiketoimintasuunnitelman laatimiseen.
+        Analysoin markkinatilannetta, kilpailijoita ja kohdeyleisöä. Laadin ansaintamallin ja
+        hinnoittelustrategian sovellukselle.
+        Lisäksi vastasin projektin budjetoinnista ja resurssien hallinnasta.
+      </p>
     </section>
 
     <section class="card">
@@ -96,7 +199,7 @@
   </main>
 
   <footer>
-    <p>© 2024 WaveSpacer Portfolio | TC-opintojakso</p>
+    <p>© 2025 WaveSpacer Portfolio | TC-opintojakso</p>
   </footer>
 </body>
 
