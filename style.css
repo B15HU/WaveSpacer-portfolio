@@ -21,6 +21,16 @@ body {
   border-bottom: 1px solid #eee;
 }
 
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.hero-text {
+  text-align: center;
+}
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
@@ -31,8 +41,11 @@ body {
   font-size: 1.1rem;
 }
 
+.logo {
+  width: 120px;
+}
 main {
-  max-width: 900px;
+  max-width: 85%;
   margin: auto;
   padding: 0 1rem 4rem;
 }
@@ -48,6 +61,14 @@ main {
 .card h2 {
   font-size: 1.6rem;
   margin-bottom: 1.2rem;
+  color: #333;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 0.5rem;
+}
+
+.card h3 {
+  margin-bottom: 2.2rem;
+  margin-top: 3rem;
   color: #333;
   border-bottom: 2px solid #f0f0f0;
   padding-bottom: 0.5rem;
@@ -69,7 +90,7 @@ main {
 
 .image-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -102,6 +123,72 @@ video {
   grid-column: 1 / -1; /* Video vie koko leveyden */
 }
 
+.single-image {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.code-image {
+  max-width: 600px; /* Vaihda haluamaasi leveyteen */
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.code-image2 {
+  max-width: 800px; /* Vaihda haluamaasi leveyteen */
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.image-caption {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.finance-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.finance-table th,
+.finance-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  vertical-align: top;
+}
+
+.finance-table th {
+  background: #f8f8f8;
+  font-weight: 600;
+}
+
+.finance-table tr:hover {
+  background: #fafafa;
+}
+
+.lopetus {
+  margin-top: 2rem;
+  padding: 1.5rem 2rem;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: #333;
+  border-left: 4px solid #000;
+  border-right: 4px solid #000;
+  border-top: 4px solid #000;
+  border-bottom: 4px solid #000;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
 footer {
   text-align: center;
   padding: 2rem;
@@ -127,4 +214,39 @@ footer {
   .image-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Kaksi saraketta vierekkäin */
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Kaksi yhtä leveää saraketta */
+  gap: 2rem; /* Väli sarakkeiden välillä */
+  margin-bottom: 3rem;
+}
+
+/* Mobiililaitteissa yksi sarake */
+@media (max-width: 768px) {
+  .two-columns {
+    grid-template-columns: 1fr; /* Vain yksi sarake */
+    gap: 1.5rem;
+  }
+}
+
+/* Varmista että kortit täyttävät korkeuden tasaisesti */
+.two-columns .card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Sama korkeus molemmille */
+}
+
+/* Listan tyylit parannettu */
+.two-columns ul {
+  margin-top: 1rem;
+  flex-grow: 1; /* Täyttää jäljelle jäävän tilan */
+}
+
+.two-columns li {
+  margin-bottom: 0.8rem;
+  padding-left: 0.5rem;
+  border-left: 3px solid #4a90e2; /* Värikäs reunus */
 }
