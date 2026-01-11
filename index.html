@@ -4,36 +4,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WaveSpacer Portfolio - Testaaja & Liiketalous</title>
+  <title>WaveSpacer Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <header class="hero">
-    <h1>WaveSpacer Portfolio</h1>
-    <p>Testaaja & Liiketaloudellinen vastaava | TC-opintojakso</p>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>WaveSpacer Portfolio</h1>
+        <p>Ali Bishaar | TC-opintojakso</p>
+      </div>
+      <img src="assets/images/logo.png" alt="WaveSpacer Logo" class="logo">
+    </div>
   </header>
 
   <main>
-    <section class="card">
-      <h2>Projektin kuvaus</h2>
-      <p>
-        WaveSpacer on musiikkisovellus, jonka tavoitteena on auttaa käyttäjiä hallitsemaan suuria
-        Spotify-soittolistojaan.
-        Sovelluksen tarkoituksena on tehdä musiikin kuuntelusta mielekkäämpää poistamalla turhat kappaleet
-        soittolistoista. Tämä tapahtuu käyttäjäystävällisen käyttöliittymän ja soittolistojen sisällön selkeän
-        visualisoinnin avulla.
-        Projektin tavoitteena oli toteuttaa toimiva sovelluskonsepti ideasta valmiiksi demoksi ja testata sen
-        toimivuutta oikeilla käyttäjillä.
-      </p>
-      <p>
-        Toteutimme projektin noin 3,5 kuukauden aikana viiden hengen kehittäjätiimissä. Vastuu alueenani
-        oli toimia – <strong>Testaajana & Liiketalouden vastaavana</strong>. Tässä portfoliossa esittelen
-        TC-opintojakson aikana tekemäni työt, osaamiseni kehittymisen sekä omat oivallukseni
-        opintojakson ajalta.
+    <div class="two-columns">
+      <section class="card">
+        <h2>Projektin kuvaus</h2>
+        <p>
+          WaveSpacer on musiikkisovellus, jonka tavoitteena on auttaa käyttäjiä hallitsemaan suuria
+          Spotify-soittolistojaan.
+          Sovelluksen tarkoituksena on tehdä musiikin kuuntelusta mielekkäämpää poistamalla turhat kappaleet
+          soittolistoista. Tämä tapahtuu käyttäjäystävällisen käyttöliittymän ja soittolistojen sisällön selkeän
+          visualisoinnin avulla.
+          Projektin tavoitteena oli toteuttaa toimiva sovelluskonsepti ideasta valmiiksi demoksi ja testata sen
+          toimivuutta oikeilla käyttäjillä.
+        </p>
+        <p>
+          Toteutimme projektin noin 3,5 kuukauden aikana viiden hengen kehittäjätiimissä. Vastuu alueenani
+          oli toimia – <strong>Testaajana & Liiketalouden vastaavana</strong>. Tässä portfoliossa esittelen
+          TC-opintojakson aikana tekemäni työt, osaamiseni kehittymisen sekä omat oivallukseni
+          opintojakson ajalta.
 
-      </p>
-    </section>
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Oma roolini projektissa</h2>
+        <ul>
+          <li><strong>Testaaja:</strong> testauksen suunnittelu, yksikkötestaus, käyttäjätestaus, CI/CD-kokeilut</li>
+          <li><strong>Liiketalouden vastaava:</strong> liiketoimintasuunnitelma, taloudelliset arviot, tulomallit</li>
+          <li><strong>Frontend-kehitys (alkuvaihe):</strong> kirjautumis- ja rekisteröitymisnäkymät, soittolistan
+            valitsin
+          </li>
+        </ul>
+      </section>
+    </div>
 
     <section class="card">
       <h2>Koodaaminen (alkuvaihe)</h2>
@@ -64,10 +82,12 @@
           <figcaption>Soittolistan valintanäkymä</figcaption>
         </figure>
 
-        <video controls>
-          <source src="assets/videos/wavespacer-demo.mp4" type="video/mp4">
-        </video>
-        <figcaption>Tervehdys animaatio</figcaption>
+        <figure>
+          <video controls>
+            <source src="assets/videos/wavespacer-demo.mp4" type="video/mp4">
+          </video>
+          <figcaption>Tervehdys animaatio</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -87,8 +107,6 @@
         on selkeä ja toimii yleisimmillä selaimilla ja laitteilla.
       </p>
 
-
-
       <h3>Yksikkötestaus (Jasmine & Karma) </h3>
       <p>Yksikkötestaus toteutettiin Angularin omilla testausvälineillä, Jasmine ja Karma. Alkuvaiheessa
         yksikkötestit olivat melko alkeellisia ja keskittyivät lähinnä tekniseen toimivuuteen, kuten:
@@ -104,11 +122,9 @@
       peruskäyttäytymisestä. Yksikkötestien kirjoittaminen auttoi myös tunnistamaan epäselviä vastuita
       komponenteissa ja paransi koodin rakennetta.
       </p>
-      <div class="image-grid">
-        <figure>
-          <img src="assets/images/karma.png" alt="Yksikkötestit">
-          <figcaption>Yksikkötestit</figcaption>
-        </figure>
+      <div class="single-image">
+        <img src="assets/images/karma.png" alt="Yksikkötestit" class="code-image2">
+        <p class="image-caption">Yksikkötestit</p>
       </div>
 
       <p>Haasteena yksikkötestauksessa oli erityisesti sen määrittely, <strong>mitä kaikkea kannattaa testata
@@ -146,14 +162,13 @@
       <p>
         Käytännössä havaittiin kuitenkin, että epäonnistuneet testit eivät aina
         estäneet muutosten etenemistä develop-haaraan. Tämän vuoksi CI/CD-putki
-        päätettiin poistaa käytöstä projektin myöhemmässä vaiheessa.
+        päätettiin poistaa käytöstä väliaikaisesti ja palata siihen myöhemmin. Valitettavasti aikaa ei riittänyt
+        tähän, eikä tästä ollut paljon hyötyä projektin loppu vaiheessa.
       </p>
 
-      <div class="image-grid">
-        <figure>
-          <img src="assets/images/unit-test.yml.png" alt="Unit-test.yml">
-          <figcaption>Unit-test.yml</figcaption>
-        </figure>
+      <div class="single-image">
+        <img src="assets/images/unit-test.yml.png" alt="Unit-test.yml" class="code-image">
+        <p class="image-caption">GitHub Actions -konfiguraatio (unit-test.yml)</p>
       </div>
 
       <h3>Käyttäjätestaus & bugien korjaus</h3>
@@ -165,37 +180,227 @@
       <p>
         <strong>Esimerkiksi:</strong>
       <ul>
-        <li>painettavien ja ei-painettavien elementtien erottelu oli epäselvää</li>
-        <li>kaipasi pieniä animaatiota kappaleen poistamisen jälkeen soittolistasta, onnistuneen toiminnon
-          merkiksi
+        <li>Tehtiin lataus ympyrä kun soittolistan tietoja haetaan</li>
+        <li>Painettavien ja ei-painettavien elementtien erottelua selvennettiin</li>
+        <li>Lisättiin animaatiota kappaleen poistamisen jälkeen soittolistasta, onnistuneen toiminnon merkiksi</li>
+      </ul>
+
+      Palaute välitettiin UI/UX-suunnittelijalle ja sitä kautta Frontend vastaavalle. Korjaukset ehdittiin
+      toteutettiin ennen loppuesitystä onnistuneesti!
+      </p>
+
+    </section>
+
+    <section class="card">
+      <h2>Liiketoiminta</h2>
+      <p><strong>
+          Liiketalouden vastaavana tehtäviini kuului liiketoimintasuunnitelman laatiminen ja
+          taloudellisien oletuksien tekeminen. Pohdin mitä WaveSpacerin tuottaminen vaatisi
+          miten siitä saisi kannattavan liiketoiminnan, keinoja kustannusten pienentämiseksi ja
+          millä tavoin markkinoida parhaiten kohdeyleisölle. Ymmärsin liiketoiminnan osuden tärkeyden
+          ja kuinka se on keskeinen osa kaikissa tuottoa tavoittelevissa projekteissa.
+        </strong>
+      </p>
+
+      <div class="single-image">
+        <img src="assets/images/Business-model-canvas.png" alt="Business model canvas" class="code-image">
+        <p class="image-caption">Business model canvas</p>
+      </div>
+
+      <h3>Liiketoimintasuunnitelma</h3>
+      <p> Lähdimme liikkeelle oletuksilla että, saavuttaisimme 500 maksavaa ja 5000 ilmaisversion
+        käyttäjää ensimmäisen vuoden loppuun menneessä. Toisena vuonna tavoitteenamme olisi kasvattaa käyttäjämäärä
+        2000 maksavaan ja 35 000 ilmaisversion asiakkaaseen ja kolmantena vuonna 5000 maksavaan asiakkaaseen ja
+        100 000 ilmaisversion käyttäjään. Arvioimme että ensimmäisen vuoden rahoitus tarpeemme
+        olisi 195 000€, jolla kattaisimme julkaistavan version kehityksen kulut, sovelluksen
+        julkaisu ja markkinoinnin käynnistäminen.
+      </p>
+
+      <p>
+        Kolmantena vuonna tulovirrat monipuolistuisivat mainostulojen ja yhteistyökumppaneiden
+        kautta. Yhteistömme olisi radio asemien, kuntosaleiden, kahviloiden/ baareiden ja tapahtumajärjestäjien
+        kanssa, joille myisimme anonyymiä käyttäjädataa suosituista soittolistoista ja sen hetkisistä
+        musiikkitrendeistä. Sekä tekisimme yhteistyötä levy yhtiöiden ja tunnettujen artistien
+        kanssa vahvistaaksemme asemaamme musiikki ja viihdealan verkostoissa.
+      </p>
+
+      <p>
+        Pitkän aikavälin tavoitteena olisi exit-skenaario kolmannen vuoden jälkeen.
+        Yhtenä myyntivalttina olisi sovelluksen skaalautuvuus muihin musiikkipalveluihin,
+        kuten YouTube Musiciin tai Apple Musiciin, mikä lisäisi sen liiketoiminnallista arvoa.
+      </p>
+
+      <h3>Tulovirrat ja oletukset</h3>
+
+      <table class="finance-table">
+        <thead>
+          <tr>
+            <th>Tulonlähde</th>
+            <th>Kuvaus</th>
+            <th>Oletus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Premium-tilaukset</td>
+            <td>Maksullinen versio sovelluksesta</td>
+            <td>3,99 € / kk / käyttäjä</td>
+          </tr>
+          <tr>
+            <td>Mainostulot (ilmaisversio)</td>
+            <td>Mainokset ilmaisversion käyttäjille</td>
+            <td>
+              5 € / 1000 näyttöä<br>
+              ~20 näyttöä / käyttäjä / kk
+            </td>
+          </tr>
+          <tr>
+            <td>Yhteistyökumppanit & anonyymi data</td>
+            <td>
+              Musiikkitrendit ja soittolistadata<br>
+              (kahvilat, kuntosalit, radioasemat, levy-yhtiöt)
+            </td>
+            <td>Sopimuskohtainen</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <h3>Kulut ja tulot (arviot / vuosi)</h3>
+
+      <table class="finance-table">
+        <thead>
+          <tr>
+            <th>Vuosi</th>
+            <th>Kulut (€)</th>
+            <th>Premium (€)</th>
+            <th>Mainokset (€)</th>
+            <th>Yhteistyöt & data (€)</th>
+            <th>Tulot yhteensä (€)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1. vuosi</td>
+            <td>195 000</td>
+            <td>1 995</td>
+            <td>500</td>
+            <td>–</td>
+            <td>2 495</td>
+          </tr>
+          <tr>
+            <td>2. vuosi</td>
+            <td>114 900</td>
+            <td>95 760</td>
+            <td>42 000</td>
+            <td>20 000</td>
+            <td>157 760</td>
+          </tr>
+          <tr>
+            <td>3. vuosi</td>
+            <td>78 900</td>
+            <td>239 400</td>
+            <td>120 000</td>
+            <td>60 000</td>
+            <td>419 400</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Haasteet ja kehityskohteet</h2>
+
+      <ul>
+        <li>
+          Testauksen vastuut eivät jakautuneet tasaisesti, eikä sitä oltu aloitettu hyvissä ajoin
+          mikä johti siihen, että testauksen osuus jäi vähäiseksi.
+        </li>
+        <li>
+          E2E-testauksen automatisointi osoittautui haastavaksi ulkoisten riippuvuuksien vuoksi. Testaajana
+          minun olisi pitänyt heti huomattuani hakea tähän apua ohjaajilta, eikä jäädä yksin selvittelemään.
+        </li>
+        <li>
+          CI/CD-putken käyttöönotto vaati enemmän konfigurointia kuin oletin,
+          mikä poissulki sen hyödyllisyyden projektissa.
+        </li>
+        <li>
+          Oman osaamisen ja aikataulun optimistinen arviointi johti siihen, että kaikkia haluamani
+          asioita en ehtinyt viimeistellä haluamallani tasolla.
+        </li>
+        <li>
+          Käyttäjätestaus olisi ollut hyödyllistä aloittaa aikaisemmassa vaiheessa projektia,
+          jotta palautteita olisi saatu enemmän.
         </li>
       </ul>
 
-      Palaute välitettiin UI/UX-suunnittelijalle ja kehittäjille, ja korjaukset toteutettiin iteratiivisesti
-      juuri ennen loppuesitystä!
-      </p>
-
-    </section>
-
-    <section class="card">
-      <h2>Liiketaloudellinen vastuu</h2>
       <p>
-        Liiketaloudellisena vastaavana osallistuin projektin liiketoimintasuunnitelman laatimiseen.
-        Analysoin markkinatilannetta, kilpailijoita ja kohdeyleisöä. Laadin ansaintamallin ja
-        hinnoittelustrategian sovellukselle.
-        Lisäksi vastasin projektin budjetoinnista ja resurssien hallinnasta.
+        Nämä haasteet auttoivat ymmärtämään projektityöskentelystä enemmän. Ja opettivat
+        ennakoinnin, vastuunjaon ja realistisen aikataulutuksen tärkeyden tulevissa projekteissa.
       </p>
     </section>
 
+
     <section class="card">
-      <h2>Reflektio ja oppiminen</h2>
+      <h2>Omat oivallukset ja oppiminen</h2>
+
+      <p>
+        TC-opintojakso syvensi ymmärrystäni siitä, miten ohjelmistoprojekti toimii kokonaisuutena.
+        Opin hahmottamaan paremmin eri roolien vastuita ja niiden välisiä riippuvuuksia.
+      </p>
+
+      <p>
+        Projektissa hyödynnettiin Scrum-menetelmää, joka osoittautui ryhmällemme toimivaksi tavaksi
+        organisoida työskentelyä. Säännölliset daily scrum, sprinttien rytmitys ja tehtävien haastavuuden
+        arvioiminen ja pienemmäksi pilkkominen auttoivat pitämään projektin hallittavana ja etenemään
+        suunnitelmallisesti.
+      </p>
       <ul>
-        <li>Opin testauksen merkityksen osana ohjelmistokehitystä</li>
-        <li>Ymmärsin paremmin liiketoiminnan ja teknisten ratkaisujen yhteyden</li>
-        <li>Kehityin vastuunottajana tiimiprojektissa</li>
-        <li>Sain arvokasta kokemusta aidosta asiakasprojektista</li>
+        <li>Testaus ei ole erillinen vaihe, vaan jatkuva osa kehitystä, mikä on hyvä aloittaa hyvissä ajoin</li>
+        <li>Automatisoitu testaus vaatii koko tiimiltä ymmärryksen</li>
+        <li>Liiketoiminta-ajattelu ohjaa teknisiä valintoja. Kehittäjät eivät voi mielivaltaisesti lisä
+          ominaisuuksia jotka tuntuvat heidän mielestään "coolilta"
+        </li>
+        <li>Käyttäjäpalaute tuo esiin ongelmia, joita kehittäjät eivät itse huomaa</li>
+        <li>Scrum on toimivaksi todettu kehitysmenetelmä, jota tulen hyödyntämään
+          myös tulevissa projekteissa</li>
       </ul>
     </section>
+
+    <section class="card">
+      <h2>Tulevaisuuden näkymät</h2>
+
+      <p>
+        WaveSpacer-projektin myötä kiinnostukseni liiketoimintaa kohtaan on kasvanut selvästi.
+        Luottamukseni tämänhetkiseen työllisyystilanteeseen on melko heikko, ja olen ymmärtänyt,
+        että jos haluan tulevaisuudessa tuottaa toimivan ja kannattavan ohjelmistoprojektin,
+        minun on ymmärrettävä liiketoimintaa huomattavasti nykyistä paremmin.
+      </p>
+
+      <p>
+        Uskon, että osaavista ohjelmistokehittäjistä ei ole varsinaista pulaa, ja että teknisesti
+        minua taitavampia tekijöitä löytyy aina. Sen sijaan koen, että suurin hyöty ja oma etuni
+        syntyy siitä, että opin tunnistamaan potentiaalisia liikeideoita ja rakentamaan niiden
+        ympärille toimivia liiketoimintasuunnitelmia.
+      </p>
+
+      <p>
+        Haluan tulevaisuudessa suunnata katseeni liikeideoiden kehittämiseen ja oppia lisää
+        rahoituksen hankkimisesta, kustannusten arvioinnista ja hallinnasta sekä projektien
+        johtamisesta ja oikeaan suuntaan viemisestä. Kuten varmasti monella muullakin,
+        pitkän aikavälin tavoitteenani on perustaa startup ja tehdä siitä onnistunut exit.
+        Tämän vuoksi pidän erittäin tärkeänä ymmärtää ohjelmistoprojektin jokaisesta osa-alueesta
+        ainakin perusteet, jotta pystyn hahmottamaan kokonaisuuksia ja tekemään parempia päätöksiä.
+      </p>
+
+      <div class="lopetus">
+        “TC-opintojakso auttoi minua ymmärtämään, että teknisesti loistava ohjelmisto ei yksin takaa
+        menestymistä, vaikka kuinka hyvä se olisikin. Taustalle aina tarvitaan vahva
+        liiketoiminnallinen näkemys.”
+      </div>
+    </section>
+
+
   </main>
 
   <footer>
